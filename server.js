@@ -24,6 +24,10 @@ app.use((req, res, next) => {
 
 require('dotenv').config();
 
+app.get("/", (req, res) => {
+    res.send("API Find IT! 2024");
+  });
+
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB connected"))
