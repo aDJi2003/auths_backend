@@ -7,11 +7,13 @@ const authRoutes = require("./routes/auth");
 dotenv.config();
 const app = express();
 
-// Middleware
-app.use(cors());
+app.use(cors({
+    origin: "https://front-end-paw.vercel.app/",
+    methods: ["GET", "POST"],                
+    allowedHeaders: ["Content-Type"],         
+  }));
 app.use(express.json());
 
-// Routes
 app.use("/api/auth", authRoutes);
 
 app.use((req, res, next) => {
@@ -28,7 +30,6 @@ app.get("/", (req, res) => {
     res.send("API Find IT! 2024");
   });
 
-// MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB connected"))
     .catch(err => console.error(err));
