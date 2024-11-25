@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: "https://front-end-paw.vercel.app/",
+    origin: "https://front-end-paw.vercel.app",
     methods: ["GET", "POST"],                
     allowedHeaders: ["Content-Type"],         
   }));
