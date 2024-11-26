@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/auth");
+const artistRoutes = require("./routes/artist");
 
 const songRoutes = require("./routes/Song");
 
@@ -14,9 +15,17 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE"], // Pastikan ini adalah array
   credentials: true,
 }));
+app.use(cors(
+  // {
+  //   origin: "https://front-end-paw.vercel.app",
+  //   methods: ["GET", "POST"],                
+  //   allowedHeaders: ["Content-Type"],         
+  // }
+));
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/artists", artistRoutes);
 app.use("/api/songs", songRoutes);
 
 app.use((req, res, next) => {
@@ -30,7 +39,7 @@ app.use((req, res, next) => {
 require('dotenv').config();
 
 app.get("/", (req, res) => {
-    res.send("API Find IT! 2024");
+    res.send("API Melodify Connected");
   });
 
 mongoose.connect(process.env.MONGO_URI)
