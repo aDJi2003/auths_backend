@@ -11,17 +11,17 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: ["https://front-end-paw.vercel.app", "http://localhost:5173"], // Tanpa trailing slash
+  origin: ["http://localhost:5173"], // Tanpa trailing slash
   methods: ["GET", "POST", "PUT", "DELETE"], // Pastikan ini adalah array
   credentials: true,
 }));
-app.use(cors(
-  // {
-  //   origin: "https://front-end-paw.vercel.app",
-  //   methods: ["GET", "POST"],                
-  //   allowedHeaders: ["Content-Type"],         
-  // }
-));
+// app.use(cors(
+//   {
+//     origin: "https://front-end-paw.vercel.app",
+//     methods: ["GET", "POST"],                
+//     allowedHeaders: ["Content-Type"],         
+//   }
+// ));
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
