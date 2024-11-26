@@ -4,17 +4,20 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/auth");
 
+const songRoutes = require("./routes/Song");
+
 dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: "https://front-end-paw.vercel.app",
-    methods: ["GET", "POST"],                
-    allowedHeaders: ["Content-Type"],         
-  }));
+  origin: ["https://front-end-paw.vercel.app", "http://localhost:5173"], // Tanpa trailing slash
+  methods: ["GET", "POST", "PUT", "DELETE"], // Pastikan ini adalah array
+  credentials: true,
+}));
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/songs", songRoutes);
 
 app.use((req, res, next) => {
     res.setHeader(
