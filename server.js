@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: ["http://localhost:5173", "https://front-end-paw.vercel.app/"], // Tanpa trailing slash
+  origin: ["http://localhost:5173", "https://front-end-paw.vercel.app"], // Tanpa trailing slash
   methods: ["GET", "POST", "PUT", "DELETE"], // Pastikan ini adalah array
   credentials: true,
 }));
