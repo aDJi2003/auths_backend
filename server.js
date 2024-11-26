@@ -22,7 +22,7 @@ app.use(cors({
 //     allowedHeaders: ["Content-Type"],         
 //   }
 // ));
-app.use(express.json());
+app.use(express.json()); 
 
 app.use("/api/auth", authRoutes);
 app.use("/api/artists", artistRoutes);
