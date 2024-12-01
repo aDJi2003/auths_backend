@@ -4,7 +4,6 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/auth");
 const artistRoutes = require("./routes/artist");
-const playListRoutes = require("./routes/playlist")
 const songRoutes = require("./routes/Song");
 
 dotenv.config();
@@ -27,7 +26,6 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/artists", artistRoutes);
 app.use("/api/songs", songRoutes);
-app.use("/api/playlist", playListRoutes);
 
 app.use((req, res, next) => {
     res.setHeader(
