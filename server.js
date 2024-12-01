@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const authRoutes = require("./routes/auth");
 const artistRoutes = require("./routes/artist");
 const songRoutes = require("./routes/Song");
+const playlistRoutes = require("./routes/playlist");
 
 dotenv.config();
 const app = express();
@@ -26,6 +27,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/artists", artistRoutes);
 app.use("/api/songs", songRoutes);
+app.use("/api/playlists", playlistRoutes);
 
 app.use((req, res, next) => {
     res.setHeader(
